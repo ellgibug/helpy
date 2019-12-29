@@ -1,8 +1,11 @@
 <template>
     <v-app id="inspire">
         <v-navigation-drawer
+                hide-overlay
+                fixed
                 v-model="drawer"
                 app
+                dark
         >
             <v-list dense>
                 <v-list-item link>
@@ -25,10 +28,10 @@
         </v-navigation-drawer>
 
         <v-app-bar
+                elevation="0"
                 app
                 color="transparent"
         >
-            <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
             <v-spacer/>
             <v-menu offset-y>
                 <template v-slot:activator="{ on }">
@@ -40,8 +43,8 @@
                     </v-btn>
                 </template>
                 <v-list>
-                    <v-list-item>
-                        <v-list-item-title>Profile</v-list-item-title>
+                    <v-list-item :to="{name: 'profile'}">
+                        <v-list-item-title>Личный кабинет</v-list-item-title>
                     </v-list-item>
                     <v-list-item :to="{name: 'landing'}">
                         <v-list-item-title>Выйти</v-list-item-title>
@@ -53,11 +56,9 @@
         <v-content>
             <router-view />
         </v-content>
-        <v-footer
-                color="indigo"
-                app
-        >
-            <span class="white--text">&copy; 2019</span>
+        <v-footer color="transparent">
+            <v-spacer/>
+            <span>&copy; 2019</span>
         </v-footer>
     </v-app>
 </template>
@@ -65,7 +66,7 @@
 <script>
     export default {
         data: () => ({
-            drawer: null,
+            drawer: true,
         }),
     }
 </script>

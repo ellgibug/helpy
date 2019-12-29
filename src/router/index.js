@@ -6,6 +6,7 @@ import Landing from "../views/landing/index";
 import Login from "../views/auth/login";
 import Register from "../views/auth/register";
 import Dashboard from "../views/inside/dashboard";
+import Profile from "../views/inside/profile";
 
 Vue.use(Meta);
 Vue.use(Router);
@@ -49,6 +50,15 @@ const router = new Router({
 			meta: {
 				layout: 'Inside',
 				title: 'Dashboard'
+			}
+		},
+		{
+			path: "/profile",
+			name: "profile",
+			component: Profile,
+			meta: {
+				layout: 'Inside',
+				title: 'Profile'
 			}
 		},
 		// {
