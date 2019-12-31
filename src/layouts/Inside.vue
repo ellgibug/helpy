@@ -7,24 +7,7 @@
                 app
                 dark
         >
-            <v-list dense>
-                <v-list-item link>
-                    <v-list-item-action>
-                        <v-icon>mdi-home</v-icon>
-                    </v-list-item-action>
-                    <v-list-item-content>
-                        <v-list-item-title>Home</v-list-item-title>
-                    </v-list-item-content>
-                </v-list-item>
-                <v-list-item link>
-                    <v-list-item-action>
-                        <v-icon>mdi-contact-mail</v-icon>
-                    </v-list-item-action>
-                    <v-list-item-content>
-                        <v-list-item-title>Contact</v-list-item-title>
-                    </v-list-item-content>
-                </v-list-item>
-            </v-list>
+            <aside-menu :data="data"></aside-menu>
         </v-navigation-drawer>
 
         <v-app-bar
@@ -64,9 +47,16 @@
 </template>
 
 <script>
+    import AsideMenu from "../components/AsideMenu";
+
     export default {
         data: () => ({
             drawer: true,
+            data: "123"
         }),
+        components: {
+            "aside-menu": AsideMenu
+        },
+
     }
 </script>
