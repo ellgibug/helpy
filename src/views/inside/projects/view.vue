@@ -23,6 +23,10 @@
             Promise.all([
             ]).then(() => {
                 next(vm => {
+                    let activeProjectId = vm.$route.params.id;
+                    let activeProject = vm.getProjectById(activeProjectId);
+                    let pages = activeProject.data.pages;
+                    vm.setActiveProject(pages);
                     vm.setActiveMenuState('pages');
                 });
             }).catch(next);
@@ -35,17 +39,15 @@
         },
 
         computed:{
-            ...mapGetters("menuStates", ["getData"]),
+            ...mapGetters("menuStates", ["getData", "getProjectById"]),
             title(){
                 return 'Project View ' + this.$route.params.id;
-            }
+            },
+
         },
 
         methods:{
-            ...mapActions("menuStates", ["setActiveMenuState"]),
-        },
-
-        mounted() {
+            ...mapActions("menuStates", ["setActiveMenuState", "setActiveProject"]),
 
         }
 

@@ -5,7 +5,6 @@ const state = {
             {
                 title: 'Дашборд',
                 route: 'dashboard',
-                icon: 'mdi-home',
                 id: 0,
                 active: false
             }
@@ -23,13 +22,108 @@ const state = {
             {
                 id: 1,
                 title: 'Проект 1',
-                icon: 'mdi-home',
                 active: false,
                 data: {
                     id: 1,
-                    pages: 12,
+                    pages: [
+                        {
+                            title: 'Страница 1',
+                            route: 'page',
+                            id: 100,
+                            active: false,
+                            data: {
+                                id: 100,
+                                buttons: [
+                                    {
+                                        title: "Просмотр",
+                                        route: "page",
+                                        active: false
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            title: 'Страница 2',
+                            route: 'page',
+                            id: 101,
+                            active: false,
+                            data: {
+                                id: 101,
+                                buttons: [
+                                    {
+                                        title: "Просмотр",
+                                        route: "page",
+                                        active: false
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            title: 'Страница 3',
+                            route: 'page',
+                            id: 102,
+                            active: false,
+                            data: {
+                                id: 102,
+                                buttons: [
+                                    {
+                                        title: "Просмотр",
+                                        route: "page",
+                                        active: false
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            title: 'Страница 4',
+                            route: 'page',
+                            id: 104,
+                            active: false,
+                            data: {
+                                id: 104,
+                                buttons: [
+                                    {
+                                        title: "Просмотр",
+                                        route: "page",
+                                        active: false
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            title: 'Страница 5',
+                            route: 'page',
+                            id: 105,
+                            active: false,
+                            data: {
+                                id: 105,
+                                buttons: [
+                                    {
+                                        title: "Просмотр",
+                                        route: "page",
+                                        active: false
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            title: 'Страница 6',
+                            route: 'page',
+                            id: 106,
+                            active: false,
+                            data: {
+                                id: 106,
+                                buttons: [
+                                    {
+                                        title: "Просмотр",
+                                        route: "page",
+                                        active: false
+                                    }
+                                ]
+                            }
+                        }
+                    ],
                     created_at: "23.12.1995",
-                    routePrefix: "project",
                     buttons: [
                         {
                             title: "Просмотр",
@@ -53,13 +147,60 @@ const state = {
             {
                 id: 2,
                 title: 'Проект 2',
-                icon: 'mdi-home',
                 active: false,
                 data: {
                     id: 2,
-                    pages: 128,
+                    pages: [
+                        {
+                            title: 'Страница 1',
+                            route: 'page',
+                            id: 100,
+                            active: false,
+                            data: {
+                                id: 100,
+                                buttons: [
+                                    {
+                                        title: "Просмотр",
+                                        route: "page",
+                                        active: false
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            title: 'Страница 2',
+                            route: 'page',
+                            id: 101,
+                            active: false,
+                            data: {
+                                id: 101,
+                                buttons: [
+                                    {
+                                        title: "Просмотр",
+                                        route: "page",
+                                        active: false
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            title: 'Страница 3',
+                            route: 'page',
+                            id: 102,
+                            active: false,
+                            data: {
+                                id: 102,
+                                buttons: [
+                                    {
+                                        title: "Просмотр",
+                                        route: "page",
+                                        active: false
+                                    }
+                                ]
+                            }
+                        }
+                    ],
                     created_at: "23.12.2005",
-                    routePrefix: "project",
                     buttons: [
                         {
                             title: "Просмотр",
@@ -87,81 +228,37 @@ const state = {
         ]
     },
     pages: {
-        items: [
-            {
-                title: 'Страница 1',
-                route: 'page',
-                icon: 'mdi-home',
-                id: 100,
-                active: false,
-                data: {
-                    id: 100,
-                    buttons: [
-                        {
-                            title: "Просмотр",
-                            route: "page",
-                            active: false
-                        }
-                    ]
-                }
-            },
-            {
-                title: 'Страница 2',
-                route: 'page',
-                icon: 'mdi-home',
-                id: 101,
-                active: false,
-                data: {
-                    id: 101,
-                    buttons: [
-                        {
-                            title: "Просмотр",
-                            route: "page",
-                            active: false
-                        }
-                    ]
-                }
-            },
-            {
-                title: 'Страница 3',
-                route: 'page',
-                icon: 'mdi-home',
-                id: 102,
-                active: false,
-                data: {
-                    id: 102,
-                    buttons: [
-                        {
-                            title: "Просмотр",
-                            route: "page",
-                            active: false
-                        }
-                    ]
-                }
-            }
-        ]
+        items:[]
     },
 };
 
 const actions = {
     setActiveMenuState({commit}, data) {
         commit('setActiveMenuState', data)
-    }
+    },
+    setActiveProject({commit}, data) {
+        commit('setActiveProject', data)
+    },
 };
 const mutations = {
     setActiveMenuState(state, data) {
         state.data = state[data];
-    }
+    },
+    setActiveProject(state, data) {
+        state.pages.items = data;
+    },
 };
 
 const getters = {
     getData: (state) => {
-        console.log(123, state.data);
         return state.data
     },
     getDefault: (state) => {
         return state.default
     },
+    getProjectById: state => id => {
+        return state.projects.items.find(p => p.id == id);
+    }
 };
 
 export const menuStates = {
