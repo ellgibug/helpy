@@ -37,7 +37,7 @@
         computed:{
             ...mapGetters("menuStates", ["getData"]),
             title(){
-                return 'Project View ' + this.$route.params.id;
+                return 'Page ' + this.$route.params.id;
             }
         },
 

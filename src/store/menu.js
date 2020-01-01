@@ -25,7 +25,6 @@ const state = {
                 title: 'Проект 1',
                 icon: 'mdi-home',
                 active: false,
-                route: 'project',
                 data: {
                     id: 1,
                     pages: 12,
@@ -56,7 +55,6 @@ const state = {
                 title: 'Проект 2',
                 icon: 'mdi-home',
                 active: false,
-                route: 'project',
                 data: {
                     id: 2,
                     pages: 128,
@@ -86,6 +84,61 @@ const state = {
                     ]
                 }
             },
+        ]
+    },
+    pages: {
+        items: [
+            {
+                title: 'Страница 1',
+                route: 'page',
+                icon: 'mdi-home',
+                id: 100,
+                active: false,
+                data: {
+                    id: 100,
+                    buttons: [
+                        {
+                            title: "Просмотр",
+                            route: "page",
+                            active: false
+                        }
+                    ]
+                }
+            },
+            {
+                title: 'Страница 2',
+                route: 'page',
+                icon: 'mdi-home',
+                id: 101,
+                active: false,
+                data: {
+                    id: 101,
+                    buttons: [
+                        {
+                            title: "Просмотр",
+                            route: "page",
+                            active: false
+                        }
+                    ]
+                }
+            },
+            {
+                title: 'Страница 3',
+                route: 'page',
+                icon: 'mdi-home',
+                id: 102,
+                active: false,
+                data: {
+                    id: 102,
+                    buttons: [
+                        {
+                            title: "Просмотр",
+                            route: "page",
+                            active: false
+                        }
+                    ]
+                }
+            }
         ]
     },
 };

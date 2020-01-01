@@ -12,11 +12,10 @@
         <v-list-item  v-for="(item) in getData.items" :key="item.id">
             <v-list-item-content>
                 <v-list-item-title>{{ item.title }}</v-list-item-title>
-                <v-list-item-subtitle>{{item.data.pages}} страниц | {{ item.data.created_at}}</v-list-item-subtitle>
-                <v-list-item-subtitle>
+                <v-list-item-subtitle v-if="item.data">{{item.data.pages}} страниц | {{ item.data.created_at}}</v-list-item-subtitle>
+                <v-list-item-subtitle v-if="item.data">
                     <span v-for="button in item.data.buttons" :key="item.id+button.route" class="mx-1">
                         <router-link :to="{ name: button.route, params: { id: item.id }}">{{ button.title }}</router-link>
-<!--                        <a :href="'/project/'+item.id+'/'+button.route">{{ button.title }}</a>-->
                     </span>
                 </v-list-item-subtitle>
             </v-list-item-content>

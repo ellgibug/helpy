@@ -96,6 +96,15 @@ const router = new Router({
 			}
 		},
 		{
+			name: 'page',
+			path: '/page/:id',
+			component: () => import('../views/inside/page'),
+			meta: {
+				layout: 'Inside',
+				title: 'Project'
+			}
+		},
+		{
 			path: "/profile",
 			name: "profile",
 			component: () => import("../views/inside/profile"),
