@@ -1,34 +1,31 @@
 const state = {
     data: {},
-    profile: {
-        appendSearch: false,
+    default: {
         items:[
             {
                 title: 'Дашборд',
                 route: 'dashboard',
                 icon: 'mdi-home',
+                id: 0,
                 active: false
             }
         ]
     },
-    // название
-    // кол-во страниц
-    // дата создания
-    // просмотр скрипт пароль экспортировать
-    // при переходе на страницу делать актив дата каким-то из пунктов в сторе
+    profile: {
+        appendSearch: false,
+        items:[
+
+        ]
+    },
     projects: {
         appendSearch: true,
         items:[
             {
-                title: 'Дашборд',
-                route: 'dashboard',
-                icon: 'mdi-home',
-                active: false
-            },
-            {
+                id: 1,
                 title: 'Проект 1',
                 icon: 'mdi-home',
                 active: false,
+                route: 'project',
                 data: {
                     id: 1,
                     pages: 12,
@@ -37,27 +34,29 @@ const state = {
                     buttons: [
                         {
                             title: "Просмотр",
-                            id: "view",
+                            route: "view",
                         },
                         {
                             title: "Скрипт",
-                            id: "script",
+                            route: "script",
                         },
                         {
                             title: "Безопасность",
-                            id: "security",
+                            route: "security",
                         },
                         {
                             title: "Экспортировать",
-                            id: "export",
+                            route: "export",
                         }
                     ]
                 }
             },
             {
+                id: 2,
                 title: 'Проект 2',
                 icon: 'mdi-home',
                 active: false,
+                route: 'project',
                 data: {
                     id: 2,
                     pages: 128,
@@ -98,13 +97,17 @@ const actions = {
 };
 const mutations = {
     setActiveMenuState(state, data) {
-        state.data = data;
+        state.data = state[data];
     }
 };
 
 const getters = {
     getData: (state) => {
+        console.log(123, state.data);
         return state.data
+    },
+    getDefault: (state) => {
+        return state.default
     },
 };
 

@@ -1,30 +1,51 @@
 <template>
-    <v-list dense>
-        <v-list-item link>
-            <v-list-item-action>
-                <v-icon>mdi-home</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-                <v-list-item-title>Home</v-list-item-title>
-            </v-list-item-content>
+    <v-list>
+        <v-list-item>
+            <v-text-field
+                    label="Поиск"
+                    outlined
+                    hide-details
+                    dense
+                    class="my-3"
+            ></v-text-field>
         </v-list-item>
-        <v-list-item link>
-            <v-list-item-action>
-                <v-icon>mdi-contact-mail</v-icon>
-            </v-list-item-action>
+        <v-list-item  v-for="(item) in getData.items" :key="item.id">
             <v-list-item-content>
-                <v-list-item-title>Contact</v-list-item-title>
+                <v-list-item-title>{{ item.title }}</v-list-item-title>
+                <v-list-item-subtitle>{{item.data.pages}} страниц | {{ item.data.created_at}}</v-list-item-subtitle>
+                <v-list-item-subtitle>
+                    <span v-for="button in item.data.buttons" :key="item.id+button.route" class="mx-1">
+                        <router-link :to="{ name: button.route, params: { id: item.id }}">{{ button.title }}</router-link>
+<!--                        <a :href="'/project/'+item.id+'/'+button.route">{{ button.title }}</a>-->
+                    </span>
+                </v-list-item-subtitle>
             </v-list-item-content>
         </v-list-item>
     </v-list>
 </template>
 
 <script>
+    import {mapGetters}        from "vuex"
+
     export default {
         name: "AsideMenu",
         props: [
             "data"
-        ]
+        ],
+
+        beforeRouteEnter(to, from, next) {
+            Promise.all([
+            ]).then(() => {
+                next(vm => {
+                    vm.getDefault();
+                    vm.getData();
+                });
+            }).catch(next);
+        },
+
+        computed:{
+            ...mapGetters("menuStates", ["getData", "getDefault"]),
+        },
     }
 </script>
 

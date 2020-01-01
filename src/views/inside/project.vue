@@ -8,7 +8,7 @@
                 justify="center"
         >
             <v-col class="text-center">
-                <h1>Dashboard</h1>
+                <h1>Project</h1>
                 {{ getData }}
             </v-col>
         </v-row>
@@ -24,7 +24,7 @@
             Promise.all([
             ]).then(() => {
                 next(vm => {
-                    vm.setActiveMenuState('projects');
+                    vm.setActiveMenuState('profile');
                 });
             }).catch(next);
         },
@@ -49,5 +49,3 @@
 
     };
 </script>
-
-

@@ -6,6 +6,7 @@
                 v-model="drawer"
                 app
                 dark
+                width="300"
         >
             <aside-menu :data="data"></aside-menu>
         </v-navigation-drawer>
@@ -15,6 +16,9 @@
                 app
                 color="transparent"
         >
+            <v-btn text icon color="primary" :to="{ name: 'dashboard'}">
+                <v-icon>mdi-home</v-icon>
+            </v-btn>
             <v-spacer/>
             <v-menu offset-y>
                 <template v-slot:activator="{ on }">
