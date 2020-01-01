@@ -1,6 +1,9 @@
 <template>
     <v-app id="inspire">
         <v-navigation-drawer
+                src="https://avatars.mds.yandex.net/get-pdb/1817937/b439aee1-4c65-46dc-b628-3dcc84d1ae32/s1200"
+                color="rgba(0,0,0,0.9)"
+                disable-resize-watcher
                 hide-overlay
                 fixed
                 v-model="drawer"
@@ -40,10 +43,10 @@
             </v-menu>
         </v-app-bar>
 
-        <v-content>
+        <v-content class="blue-grey lighten-5">
             <router-view />
         </v-content>
-        <v-footer color="transparent">
+        <v-footer class="blue-grey lighten-5">
             <v-spacer/>
             <span>&copy; 2019</span>
         </v-footer>

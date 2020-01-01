@@ -38,6 +38,16 @@ const state = {
                                         title: "Просмотр",
                                         route: "page",
                                         active: false
+                                    },
+                                    {
+                                        title: "Редактировать",
+                                        route: "page",
+                                        active: false
+                                    },
+                                    {
+                                        title: "Действия",
+                                        route: "page",
+                                        active: false
                                     }
                                 ]
                             }
