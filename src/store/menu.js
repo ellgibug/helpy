@@ -228,6 +228,7 @@ const state = {
         ]
     },
     pages: {
+        appendSearch: true,
         items:[]
     },
 };

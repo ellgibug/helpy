@@ -1,6 +1,6 @@
 <template>
     <v-list>
-        <v-list-item>
+        <v-list-item v-if="getData.appendSearch">
             <v-text-field
                     label="Поиск"
                     outlined
