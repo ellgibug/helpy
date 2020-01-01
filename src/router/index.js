@@ -2,17 +2,6 @@ import Vue from "vue";
 import Router from "vue-router";
 import Meta from 'vue-meta';
 
-import Landing from "../views/landing/index";
-import Login from "../views/auth/login";
-import Register from "../views/auth/register";
-import Dashboard from "../views/inside/dashboard";
-import Project from "../views/inside/project";
-// import ProjectView from "../views/inside/projectView";
-// import ProjectScript from "../views/inside/projectScript";
-// import ProjectSecurity from "../views/inside/projectSecurity";
-// import ProjectExport from "../views/inside/projectExport";
-import Profile from "../views/inside/profile";
-
 Vue.use(Meta);
 Vue.use(Router);
 
@@ -24,7 +13,7 @@ const router = new Router({
 		{
 			path: "/",
 			name: "landing",
-			component: Landing,
+			component: () => import("../views/landing/index"),
 			meta: {
 				layout: 'Landing',
 				title: 'Landing'
@@ -33,7 +22,7 @@ const router = new Router({
 		{
 			path: "/login",
 			name: "login",
-			component: Login,
+			component: () => import("../views/auth/login"),
 			meta: {
 				layout: 'Auth',
 				title: 'Login'
@@ -42,7 +31,7 @@ const router = new Router({
 		{
 			path: "/register",
 			name: "register",
-			component: Register,
+			component: () => import("../views/auth/register"),
 			meta: {
 				layout: 'Auth',
 				title: 'Register'
@@ -51,7 +40,7 @@ const router = new Router({
 		{
 			path: "/dashboard",
 			name: "dashboard",
-			component: Dashboard,
+			component: () => import("../views/inside/dashboard"),
 			meta: {
 				layout: 'Inside',
 				title: 'Dashboard'
@@ -60,7 +49,7 @@ const router = new Router({
 		{
 			path: "/project/:id",
 			name: "project",
-			component: Project,
+			component: () => import("../views/inside/project"),
 			children:[
 
 			],
@@ -72,7 +61,6 @@ const router = new Router({
 		{
 			name: 'view',
 			path: '/project/:id/view',
-			// component: ProjectView,
 			component: () => import('../views/inside/projectView'),
 			meta: {
 				layout: 'Inside',
@@ -110,27 +98,13 @@ const router = new Router({
 		{
 			path: "/profile",
 			name: "profile",
-			component: Profile,
+			component: () => import("../views/inside/profile"),
 			meta: {
 				layout: 'Inside',
 				title: 'Profile'
 			}
-		},
-		// {
-		// 	path: "8",
-		// 	name: "errors",
-		// 	component: Dashboard,
-		// 	meta: {
-		// 		layout: 'Inside',
-		// 		title: 'Dashboard'
-		// 	}
-		// }
+		}
 	]
 });
 
 export default router;
-
-
-
-
-
