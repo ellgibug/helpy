@@ -2,7 +2,7 @@ export const auth = [
     {
         path: "/login",
         name: "login",
-        component: ()=>"../views/auth/login",
+        component: () => import("../views/auth/login"),
         meta: {
             layout: 'Auth',
             title: 'Login'
@@ -11,10 +11,10 @@ export const auth = [
     {
         path: "/register",
         name: "register",
-        component: () => "../views/auth/register",
+        component: () => import("../views/auth/register"),
         meta: {
             layout: 'Auth',
             title: 'Register'
         }
-    }
+    },
 ];
