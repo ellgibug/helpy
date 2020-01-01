@@ -2,7 +2,7 @@ export const projects = [
     {
         path: "/project/:id",
         name: "project",
-        component: () => import("../views/inside/project"),
+        component: () => import("../views/inside/projects/project"),
         children:[
 
         ],
@@ -14,7 +14,7 @@ export const projects = [
     {
         name: 'view',
         path: '/project/:id/view',
-        component: () => import('../views/inside/projectView'),
+        component: () => import('../views/inside/projects/view'),
         meta: {
             layout: 'Inside',
             title: 'Project'
@@ -23,7 +23,7 @@ export const projects = [
     {
         name: 'script',
         path: '/project/:id/script',
-        component: () => import('../views/inside/projectScript'),
+        component: () => import('../views/inside/projects/script'),
         meta: {
             layout: 'Inside',
             title: 'Project'
@@ -32,7 +32,7 @@ export const projects = [
     {
         name: 'security',
         path: '/project/:id/security',
-        component: () => import('../views/inside/projectSecurity'),
+        component: () => import('../views/inside/projects/security'),
         meta: {
             layout: 'Inside',
             title: 'Project'
@@ -42,7 +42,7 @@ export const projects = [
     {
         name: 'export',
         path: '/project/:id/export',
-        component: () => import('../views/inside/projectExport'),
+        component: () => import('../views/inside/projects/export'),
         meta: {
             layout: 'Inside',
             title: 'Project'
@@ -51,7 +51,7 @@ export const projects = [
     {
         name: 'page',
         path: '/page/:id',
-        component: () => import('../views/inside/page'),
+        component: () => import('../views/inside/projects/page'),
         meta: {
             layout: 'Inside',
             title: 'Project'
