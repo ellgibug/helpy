@@ -8,12 +8,46 @@
                 justify="center"
         >
             <v-col class="text-center">
-                <h1>Project Script</h1>
+                <h1>{{title}}</h1>
             </v-col>
         </v-row>
     </v-container>
 </template>
 
 <script>
+    import {mapActions, mapGetters}        from "vuex"
 
+    export default {
+
+        beforeRouteEnter(to, from, next) {
+            Promise.all([
+            ]).then(() => {
+                next(vm => {
+                    vm.setActiveMenuState('projects');
+                });
+            }).catch(next);
+        },
+
+        data(){
+            return{
+
+            }
+        },
+
+        computed:{
+            ...mapGetters("menuStates", ["getData"]),
+            title(){
+                return 'Project Script ' + this.$route.params.id;
+            }
+        },
+
+        methods:{
+            ...mapActions("menuStates", ["setActiveMenuState"]),
+        },
+
+        mounted() {
+
+        }
+
+    };
 </script>

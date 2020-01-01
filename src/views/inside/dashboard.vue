@@ -9,7 +9,6 @@
         >
             <v-col class="text-center">
                 <h1>Dashboard</h1>
-                {{ getData }}
             </v-col>
         </v-row>
     </v-container>
