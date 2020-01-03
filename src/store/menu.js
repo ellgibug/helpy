@@ -17,18 +17,53 @@ const state = {
                 title: 'Профиль',
                 route: 'profile',
                 id: 1,
-                active: false
+                active: false,
+                data:{
+                    id: 1,
+                    buttons: [
+                        {
+                            title: "Личные данные",
+                            route: "profile",
+                            active: false
+                        }
+                    ]
+                }
             },
             {
                 title: 'Организация',
                 route: 'profile',
                 id: 2,
-                active: false
+                active: false,
+                data:{
+                    id: 2,
+                    buttons: [
+                        {
+                            title: "Лицевой счет",
+                            route: "account",
+                            active: false
+                        },
+                        {
+                            title: "Пользователи",
+                            route: "users",
+                            active: false
+                        }
+                    ]
+                }
             },{
                 title: 'Мои проекты',
                 route: 'profile',
                 id: 3,
-                active: false
+                active: false,
+                data:{
+                    id: 3,
+                    buttons: [
+                        {
+                            title: "Просмотр",
+                            route: "projects",
+                            active: false
+                        }
+                    ]
+                }
             }
         ]
     },
