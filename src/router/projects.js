@@ -57,4 +57,22 @@ export const projects = [
             title: 'Project'
         }
     },
+    {
+        name: 'edit',
+        path: '/page/:id/edit',
+        component: () => import('../views/inside/projects/edit'),
+        meta: {
+            layout: 'Inside',
+            title: 'Project'
+        }
+    },
+    {
+        name: 'actions',
+        path: '/page/:id/actions',
+        component: () => import('../views/inside/projects/actions'),
+        meta: {
+            layout: 'Inside',
+            title: 'Project'
+        }
+    },
 ];

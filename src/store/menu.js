@@ -13,7 +13,23 @@ const state = {
     profile: {
         appendSearch: false,
         items:[
-
+            {
+                title: 'Профиль',
+                route: 'profile',
+                id: 1,
+                active: false
+            },
+            {
+                title: 'Организация',
+                route: 'profile',
+                id: 2,
+                active: false
+            },{
+                title: 'Мои проекты',
+                route: 'profile',
+                id: 3,
+                active: false
+            }
         ]
     },
     projects: {
@@ -41,12 +57,12 @@ const state = {
                                     },
                                     {
                                         title: "Редактировать",
-                                        route: "page",
+                                        route: "edit",
                                         active: false
                                     },
                                     {
                                         title: "Действия",
-                                        route: "page",
+                                        route: "actions",
                                         active: false
                                     }
                                 ]

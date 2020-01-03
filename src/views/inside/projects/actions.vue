@@ -9,7 +9,14 @@
         >
             <v-col class="text-center">
                 <h1>{{title}}</h1>
-                <p>Просто просмотр</p>
+                <ul>
+                    <li>Экспорт</li>
+                    <li>Пароль</li>
+                    <li>Приоритет</li>
+                    <li>Показать на странице с адресом</li>
+                    <li>Спрятать</li>
+                    <li>Удалить</li>
+                </ul>
             </v-col>
         </v-row>
     </v-container>
@@ -38,7 +45,7 @@
         computed:{
             ...mapGetters("menuStates", ["getData"]),
             title(){
-                return 'Page ' + this.$route.params.id;
+                return 'Actions Page ' + this.$route.params.id;
             }
         },
 

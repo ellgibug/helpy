@@ -9,6 +9,11 @@
         >
             <v-col class="text-center">
                 <h1>{{title}}</h1>
+                <p>Word</p>
+                <p>PDF</p>
+                <p>Plain Text - ignore images</p>
+                <p>Image</p>
+                <p>Поделиться ссылкой на проект</p>
             </v-col>
         </v-row>
     </v-container>

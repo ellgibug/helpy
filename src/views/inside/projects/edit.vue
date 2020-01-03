@@ -9,7 +9,8 @@
         >
             <v-col class="text-center">
                 <h1>{{title}}</h1>
-                <p>Просто просмотр</p>
+                 <p>Редактирование</p>
+                 <p>Список последних изменений страницы</p>
             </v-col>
         </v-row>
     </v-container>
@@ -38,7 +39,7 @@
         computed:{
             ...mapGetters("menuStates", ["getData"]),
             title(){
-                return 'Page ' + this.$route.params.id;
+                return 'Edit Page ' + this.$route.params.id;
             }
         },
 
