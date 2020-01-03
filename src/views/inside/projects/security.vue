@@ -1,22 +1,82 @@
 <template>
-    <v-container
-            class="fill-height"
-            fluid
-    >
-        <v-row
-                align="center"
-                justify="center"
-        >
-            <v-col class="text-center">
-                <h1>{{title}}</h1>
-                <p>Публичный - версия видна всем в интернете</p>
-                <p>Приватный - версия видна только зарегистрированным пользователям</p>
-                <p>Задать пароль</p>
-                <p>Деактивировать проект</p>
-                <p>Удалить проект</p>
-                <hr>
-                <p>Список последних изменений проекта</p>
-                <p>Изменить/добавить людей</p>
+    <v-container fluid>
+        <v-row>
+            <v-col>
+                <h1 class="mb-4">{{title}}</h1>
+                <v-card elevation="0" outlined class="mb-4">
+                    <v-card-title>Версия проекта</v-card-title>
+                    <v-card-text>
+                        <v-radio-group v-model="version" :mandatory="false">
+                            <v-radio label="Публичная версия - видна всем в интернете" value="public"></v-radio>
+                            <v-radio label="Приватная версия - видна только сотрудникам организации" value="private"></v-radio>
+                        </v-radio-group>
+                    </v-card-text>
+                </v-card>
+
+                <v-card elevation="0" outlined class="mb-4">
+                    <v-card-title>Блокировка проекта</v-card-title>
+                    <v-card-text>
+                        <p>Проект активен.
+                            Вы можете деактивировать проект.
+                            Это значит, что он исчезнет из поиска и будет недоступен для сотрдников организации.
+                            Вы сможете активировать проект спустя 24 часа.
+                            <br>
+                            <a href="">Деактивировать проект</a></p>
+                    </v-card-text>
+                </v-card>
+
+                <v-card elevation="0" outlined class="mb-4">
+                    <v-card-title>Удаление проекта</v-card-title>
+                    <v-card-text>
+                        <p>При удалении проекта Вы уже не сможете его восстановить.
+                            <br>
+                            <a href="">Удалить проект</a></p>
+                    </v-card-text>
+                </v-card>
+
+                <v-card elevation="0" outlined class="mb-4">
+                    <v-card-title>Список последних изменений</v-card-title>
+                    <v-card-text>
+                        <v-simple-table>
+                            <template v-slot:default>
+                                <thead>
+                                <tr>
+                                    <th class="text-left">Name</th>
+                                    <th class="text-left">Calories</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr v-for="item in desserts" :key="item.name">
+                                    <td>{{ item.name }}</td>
+                                    <td>{{ item.calories }}</td>
+                                </tr>
+                                </tbody>
+                            </template>
+                        </v-simple-table>
+                    </v-card-text>
+                </v-card>
+
+                <v-card elevation="0" outlined class="mb-4">
+                    <v-card-title>Права доступа сотрудников</v-card-title>
+                    <v-card-text>
+                        <v-simple-table>
+                            <template v-slot:default>
+                                <thead>
+                                <tr>
+                                    <th class="text-left">Name</th>
+                                    <th class="text-left">Calories</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr v-for="item in desserts2" :key="item.name">
+                                    <td>{{ item.name }}</td>
+                                    <td>{{ item.calories }}</td>
+                                </tr>
+                                </tbody>
+                            </template>
+                        </v-simple-table>
+                    </v-card-text>
+                </v-card>
             </v-col>
         </v-row>
     </v-container>
@@ -36,16 +96,80 @@
             }).catch(next);
         },
 
-        data(){
-            return{
-
+        data () {
+            return {
+                version: 'public',
+                desserts: [
+                    {
+                        name: 'Frozen Yogurt',
+                        calories: 159,
+                    },
+                    {
+                        name: 'Ice cream sandwich',
+                        calories: 237,
+                    },
+                    {
+                        name: 'Eclair',
+                        calories: 262,
+                    },
+                    {
+                        name: 'Cupcake',
+                        calories: 305,
+                    },
+                    {
+                        name: 'Gingerbread',
+                        calories: 356,
+                    },
+                    {
+                        name: 'Jelly bean',
+                        calories: 375,
+                    },
+                    {
+                        name: 'Lollipop',
+                        calories: 392,
+                    },
+                    {
+                        name: 'Honeycomb',
+                        calories: 408,
+                    },
+                    {
+                        name: 'Donut',
+                        calories: 452,
+                    },
+                    {
+                        name: 'KitKat',
+                        calories: 518,
+                    },
+                ],
+                desserts2: [
+                    {
+                        name: 'Frozen Yogurt',
+                        calories: 159,
+                    },
+                    {
+                        name: 'Ice cream sandwich',
+                        calories: 237,
+                    },
+                    {
+                        name: 'Eclair',
+                        calories: 262,
+                    },
+                    {
+                        name: 'Cupcake',
+                        calories: 305,
+                    },
+                    {
+                        name: 'Gingerbread',
+                        calories: 356,
+                    }
+                ],
             }
         },
 
         computed:{
             ...mapGetters("menuStates", ["getData"]),
             title(){
-                return 'Project Security ' + this.$route.params.id;
+                return `Проект "${this.$route.params.id}" - настройки безопасности`;
             }
         },
 

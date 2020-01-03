@@ -17,7 +17,7 @@
         <v-app-bar
                 elevation="0"
                 app
-                color="transparent"
+                color="blue-grey lighten-5"
         >
             <v-btn text icon color="primary" :to="{ name: 'dashboard'}">
                 <v-icon>mdi-home</v-icon>
