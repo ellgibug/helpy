@@ -1,19 +1,23 @@
 <template>
     <v-container fluid>
+        <h1>{{title}}</h1>
         <v-row>
             <v-col>
-                <h1 class="mb-4">{{title}}</h1>
-                <v-card elevation="0" outlined class="mb-4">
+                <v-card elevation="0" outlined>
                     <v-card-title>Версия проекта</v-card-title>
                     <v-card-text>
                         <v-radio-group v-model="version" :mandatory="false">
                             <v-radio label="Публичная версия - видна всем в интернете" value="public"></v-radio>
                             <v-radio label="Приватная версия - видна только сотрудникам организации" value="private"></v-radio>
                         </v-radio-group>
+                        <p>Вы можете использовать хэш или название проекта в url. Просмотр проекта доступен во складке "Экспорт".</p>
                     </v-card-text>
                 </v-card>
-
-                <v-card elevation="0" outlined class="mb-4">
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col cols="12" xl="6" lg="6" md="12" sm="12" xs="12">
+                <v-card elevation="0" outlined>
                     <v-card-title>Блокировка проекта</v-card-title>
                     <v-card-text>
                         <p>Проект активен.
@@ -24,8 +28,9 @@
                             <a href="">Деактивировать проект</a></p>
                     </v-card-text>
                 </v-card>
-
-                <v-card elevation="0" outlined class="mb-4">
+            </v-col>
+            <v-col cols="12" xl="6" lg="6" md="12" sm="12" xs="12">
+                <v-card elevation="0" outlined>
                     <v-card-title>Удаление проекта</v-card-title>
                     <v-card-text>
                         <p>При удалении проекта Вы уже не сможете его восстановить.
@@ -33,16 +38,19 @@
                             <a href="">Удалить проект</a></p>
                     </v-card-text>
                 </v-card>
-
-                <v-card elevation="0" outlined class="mb-4">
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col cols="12" xl="6" lg="6" md="12" sm="12" xs="12">
+                <v-card elevation="0" outlined>
                     <v-card-title>Список последних изменений</v-card-title>
                     <v-card-text>
                         <v-simple-table>
                             <template v-slot:default>
                                 <thead>
                                 <tr>
-                                    <th class="text-left">Name</th>
-                                    <th class="text-left">Calories</th>
+                                    <th class="text-left">Имя</th>
+                                    <th class="text-left">Страница (+дата)</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -55,16 +63,17 @@
                         </v-simple-table>
                     </v-card-text>
                 </v-card>
-
-                <v-card elevation="0" outlined class="mb-4">
+            </v-col>
+            <v-col cols="12" xl="6" lg="6" md="12" sm="12" xs="12">
+                <v-card elevation="0" outlined>
                     <v-card-title>Права доступа сотрудников</v-card-title>
                     <v-card-text>
                         <v-simple-table>
                             <template v-slot:default>
                                 <thead>
                                 <tr>
-                                    <th class="text-left">Name</th>
-                                    <th class="text-left">Calories</th>
+                                    <th class="text-left">Сотрудник</th>
+                                    <th class="text-left">Права (да или нет)</th>
                                 </tr>
                                 </thead>
                                 <tbody>

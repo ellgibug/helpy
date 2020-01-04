@@ -1,19 +1,38 @@
 <template>
-    <v-container
-            class="fill-height"
-            fluid
-    >
-        <v-row
-                align="center"
-                justify="center"
-        >
-            <v-col class="text-center">
-                <h1>{{title}}</h1>
-                <p>Word</p>
-                <p>PDF</p>
-                <p>Plain Text - ignore images</p>
-                <p>Image</p>
-                <p>Поделиться ссылкой на проект</p>
+    <v-container fluid>
+        <h1>{{title}}</h1>
+        <v-row>
+            <v-col>
+                <v-card elevation="0" outlined>
+                    <v-card-title>Проект в интернете</v-card-title>
+                    <v-card-text>
+                        <p><a href="">Открыть</a> проект в интернете.</p>
+                        <p><a href="">Скопируйте</a> ссылку для быстрого доступа (страницы с оглавлением и поиском).</p>
+                        <kbd>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</kbd>
+                    </v-card-text>
+                </v-card>
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col>
+                <v-card elevation="0" outlined>
+                    <v-card-title>DOCX</v-card-title>
+                </v-card>
+            </v-col>
+            <v-col>
+                <v-card elevation="0" outlined>
+                    <v-card-title>PDF</v-card-title>
+                </v-card>
+            </v-col>
+            <v-col>
+                <v-card elevation="0" outlined>
+                    <v-card-title>Plain Text</v-card-title>
+                </v-card>
+            </v-col>
+            <v-col>
+                <v-card elevation="0" outlined>
+                    <v-card-title>PNG Image</v-card-title>
+                </v-card>
             </v-col>
         </v-row>
     </v-container>
@@ -42,7 +61,7 @@
         computed:{
             ...mapGetters("menuStates", ["getData"]),
             title(){
-                return 'Project Export ' + this.$route.params.id;
+                return `Проект "${this.$route.params.id}" - экпорт`;
             }
         },
 
