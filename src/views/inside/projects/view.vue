@@ -4,27 +4,44 @@
     >
         <h1>{{title}}</h1>
         <v-row>
-            <v-col cols="12" xl="8" lg="8" md="7" sm="12" xs="12">
-                Список страниц - меняется местами
-                <br>
-                {{ pages }}
-            </v-col>
-            <v-col cols="12" xl="4" lg="4" md="5" sm="12" xs="12">
-                Настройки страницы
-                <br>
-                <ul>
-                    <li>Просмотр</li>
-                    <li>Редактировать</li>
-                    <li>Экспорт</li>
-                    <li>Пароль</li>
-                    <li>Приоритет</li>
-                    <li>Показать на странице с адресом</li>
-                    <li>Спрятать</li>
-                    <li>Удалить</li>
-                </ul>
+            <v-col>
+                <v-card elevation="0" outlined>
+                    <v-card-title>Страницы</v-card-title>
+                    <v-card-text>
+                        <v-list-item v-for="page in pages" :key="page.id">
+                            <v-list-item-content>
+                                <v-list-item-title>{{ page.title }}</v-list-item-title>
+                            </v-list-item-content>
+                        </v-list-item>
+                    </v-card-text>
+                </v-card>
             </v-col>
         </v-row>
-        <h2>Список констант проекта</h2>
+        <v-row>
+            <v-col>
+                <v-card elevation="0" outlined>
+                    <v-card-title>Список констант проекта</v-card-title>
+                    <v-card-text>
+                        <v-simple-table>
+                            <template v-slot:default>
+                                <thead>
+                                <tr>
+                                    <th class="text-left">Значение, сокращение</th>
+                                    <th class="text-left">Действие</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr v-for="item in desserts2" :key="item.name">
+                                    <td>{{ item.name }}</td>
+                                    <td>{{ item.calories }}</td>
+                                </tr>
+                                </tbody>
+                            </template>
+                        </v-simple-table>
+                    </v-card-text>
+                </v-card>
+            </v-col>
+        </v-row>
     </v-container>
 </template>
 
@@ -49,14 +66,36 @@
 
         data(){
             return{
-                pages: []
+                pages: [],
+                desserts2: [
+                    {
+                        name: 'Frozen Yogurt',
+                        calories: 159,
+                    },
+                    {
+                        name: 'Ice cream sandwich',
+                        calories: 237,
+                    },
+                    {
+                        name: 'Eclair',
+                        calories: 262,
+                    },
+                    {
+                        name: 'Cupcake',
+                        calories: 305,
+                    },
+                    {
+                        name: 'Gingerbread',
+                        calories: 356,
+                    }
+                ],
             }
         },
 
         computed:{
             ...mapGetters("menuStates", ["getData", "getProjectById"]),
             title(){
-                return 'Project View ' + this.$route.params.id;
+                return `Просмотр проекта "${this.$route.params.id}"`;
             },
 
         },
