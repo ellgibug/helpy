@@ -6,6 +6,16 @@
         <v-row>
             <v-col>
                 <v-card elevation="0" outlined>
+                    <v-card-title>Создать страницу</v-card-title>
+                    <v-card-text>
+                        <router-link :to="{name: 'newPage', params: { id: $route.params.id }}">Создать страницу</router-link>
+                    </v-card-text>
+                </v-card>
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col>
+                <v-card elevation="0" outlined>
                     <v-card-title>Название проекта</v-card-title>
                     <v-card-text>
                         <v-text-field

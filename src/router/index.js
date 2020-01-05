@@ -10,6 +10,7 @@ import {dashboard} from "./dashboard";
 import {landing} from "./landing";
 import {profile} from "./profile";
 import {projects} from "./projects";
+import {errors} from "./errors";
 
 let routes = [];
 
@@ -18,7 +19,8 @@ for (let route of [
 	...dashboard,
 	...landing,
 	...profile,
-	...projects
+	...projects,
+	...errors
 ]) {
 	routes.push(route);
 }

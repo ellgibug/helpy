@@ -1,11 +1,26 @@
 export const projects = [
     {
-        path: "/project/:id",
-        name: "project",
-        component: () => import("../views/inside/projects/project"),
-        children:[
-
-        ],
+        path: "/project/new",
+        name: "newProject",
+        component: () => import("../views/inside/projects/newProject"),
+        meta: {
+            layout: 'Inside',
+            title: 'Project'
+        }
+    },
+    // {
+    //     path: "/project/:id",
+    //     name: "project",
+    //     component: () => import("../views/inside/projects/project"),
+    //     meta: {
+    //         layout: 'Inside',
+    //         title: 'Project'
+    //     }
+    // },
+    {
+        name: 'newPage',
+        path: '/project/:id/new',
+        component: () => import('../views/inside/projects/newPage'),
         meta: {
             layout: 'Inside',
             title: 'Project'

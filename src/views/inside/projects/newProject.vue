@@ -1,15 +1,14 @@
 <template>
-    <v-container
-            class="fill-height"
-            fluid
-    >
-        <v-row
-                align="center"
-                justify="center"
-        >
-            <v-col class="text-center">
-                <h1>Dashboard</h1>
-                <router-link :to="{name: 'newProject'}">Создать проект</router-link>
+    <v-container fluid>
+        <h1>Создать проект</h1>
+        <v-row>
+            <v-col>
+                <v-card elevation="0" outlined>
+                    <v-card-title>Данные для создания проекта</v-card-title>
+                    <v-card-text>
+                        <p>Данные для создания проекта</p>
+                    </v-card-text>
+                </v-card>
             </v-col>
         </v-row>
     </v-container>
@@ -36,7 +35,7 @@
         },
 
         computed:{
-            ...mapGetters("menuStates", ["getData"]),
+            ...mapGetters("menuStates", ["getData"])
         },
 
         methods:{
@@ -49,5 +48,3 @@
 
     };
 </script>
-
-

@@ -1,15 +1,7 @@
 <template>
-    <div>
-        <router-view />
-    </div>
+    <v-app id="inspire">
+        <v-content>
+            <router-view />
+        </v-content>
+    </v-app>
 </template>
-
-<script>
-    export default {
-        name: "Errors"
-    }
-</script>
-
-<style scoped>
-
-</style>
