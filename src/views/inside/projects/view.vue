@@ -6,6 +6,18 @@
         <v-row>
             <v-col>
                 <v-card elevation="0" outlined>
+                    <v-card-title>Название проекта</v-card-title>
+                    <v-card-text>
+                        <v-text-field
+                                label="Название проекта"
+                        ></v-text-field>
+                    </v-card-text>
+                </v-card>
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col>
+                <v-card elevation="0" outlined>
                     <v-card-title>Страницы</v-card-title>
                     <v-card-text>
                         <v-list-item v-for="page in pages" :key="page.id">

@@ -1,19 +1,36 @@
 <template>
-    <v-container
-            class="fill-height"
-            fluid
-    >
-        <v-row
-                align="center"
-                justify="center"
-        >
+    <v-container fluid>
+        <h1>Пользователи организции</h1>
+        <v-row>
             <v-col>
-                <h1>Users</h1>
-                <p>Организация</p>
-                <ul>
-                    <li>Список пользователей - админ с редактированием, остальные просмотр + регистрация новых</li>
-                    <li>Доступные проекты и роли - у всех, у админа еще изменение и просмотр прав</li>
-                </ul>
+                <v-card elevation="0" outlined>
+                    <v-card-title>Пригласить пользователя</v-card-title>
+                </v-card>
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col>
+                <v-card elevation="0" outlined>
+                    <v-card-title>Пользователи</v-card-title>
+                    <v-card-text>
+                        <v-simple-table>
+                            <template v-slot:default>
+                                <thead>
+                                <tr>
+                                    <th class="text-left">ФИО, роль</th>
+                                    <th class="text-left">Действие</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr v-for="item in desserts2" :key="item.name">
+                                    <td>{{ item.name }}</td>
+                                    <td>{{ item.calories }}</td>
+                                </tr>
+                                </tbody>
+                            </template>
+                        </v-simple-table>
+                    </v-card-text>
+                </v-card>
             </v-col>
         </v-row>
     </v-container>
@@ -35,7 +52,28 @@
 
         data(){
             return{
-
+                desserts2: [
+                    {
+                        name: 'Frozen Yogurt',
+                        calories: 159,
+                    },
+                    {
+                        name: 'Ice cream sandwich',
+                        calories: 237,
+                    },
+                    {
+                        name: 'Eclair',
+                        calories: 262,
+                    },
+                    {
+                        name: 'Cupcake',
+                        calories: 305,
+                    },
+                    {
+                        name: 'Gingerbread',
+                        calories: 356,
+                    }
+                ],
             }
         },
 

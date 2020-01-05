@@ -9,6 +9,7 @@
         >
             <v-col class="text-center">
                 <h1>Dashboard</h1>
+                <p>Создать проект</p>
             </v-col>
         </v-row>
     </v-container>

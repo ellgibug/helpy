@@ -320,6 +320,9 @@ const getters = {
     },
     getProjectById: state => id => {
         return state.projects.items.find(p => p.id == id);
+    },
+    getProjects: (state) => {
+        return state.projects.items;
     }
 };
 

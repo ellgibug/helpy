@@ -1,21 +1,34 @@
 <template>
-    <v-container
-            class="fill-height"
-            fluid
-    >
-        <v-row
-                align="center"
-                justify="center"
-        >
+    <v-container fluid>
+        <h1>Профиль</h1>
+        <v-row>
             <v-col>
-                <h1>Profile</h1>
-                <p>Страница профиль</p>
-                <ul>
-                    <li>Личные данные</li>
-                    <li>Данные для входа</li>
-                    <li>Роль - пользователь изменить не может, меняет система</li>
-                    <li>Роль - админ организации (добавление сотрудников, все действия с проектами), сотрудник организации (просмотр + редатирование/частичное редатирование проекта(ов))</li>
-                </ul>
+                <v-card elevation="0" outlined>
+                    <v-card-title>Персанальные данные</v-card-title>
+                    <v-card-text>
+                        id, ФИО, емейл, телефон
+                    </v-card-text>
+                </v-card>
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col>
+                <v-card elevation="0" outlined>
+                    <v-card-title>Тип аккаунта</v-card-title>
+                    <v-card-text>
+                        админ, сотрудник
+                    </v-card-text>
+                </v-card>
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col>
+                <v-card elevation="0" outlined>
+                    <v-card-title>Безопасность</v-card-title>
+                    <v-card-text>
+                        пароль
+                    </v-card-text>
+                </v-card>
             </v-col>
         </v-row>
     </v-container>

@@ -1,15 +1,15 @@
 <template>
-    <v-container
-            class="fill-height"
-            fluid
-    >
-        <v-row
-                align="center"
-                justify="center"
-        >
-            <v-col>
-                <h1>Projects</h1>
-                <p>Доступные проекты - персональные</p>
+    <v-container fluid>
+        <h1>Мои доступные проекты</h1>
+        <v-row>
+            <v-col cols="12" xl="2" lg="3" md="6" sm="6" xs="12" v-for="project in projects" :key="project.id">
+                <v-card elevation="0" outlined>
+                    <v-card-title>{{ project.title }}</v-card-title>
+                    <v-card-text>
+                        <p>Количество страниц {{ project.data.pages.length }}</p>
+                        <p>Создано {{ project.data.created_at }}</p>
+                    </v-card-text>
+                </v-card>
             </v-col>
         </v-row>
     </v-container>
@@ -25,18 +25,19 @@
             ]).then(() => {
                 next(vm => {
                     vm.setActiveMenuState('profile');
+                    vm.projects = vm.getProjects;
                 });
             }).catch(next);
         },
 
         data(){
             return{
-
+                projects: []
             }
         },
 
         computed:{
-            ...mapGetters("menuStates", ["getData"]),
+            ...mapGetters("menuStates", ["getProjects", "getData"]),
         },
 
         methods:{
