@@ -286,6 +286,141 @@ const state = {
                     ]
                 }
             },
+            {
+                id: 3,
+                title: 'Проект 3',
+                active: false,
+                data: {
+                    id: 3,
+                    pages: [
+                        {
+                            title: 'Страница 1',
+                            route: 'page',
+                            id: 100,
+                            active: false,
+                            data: {
+                                id: 100,
+                                buttons: [
+                                    {
+                                        title: "Просмотр",
+                                        route: "page",
+                                        active: false
+                                    },
+                                    {
+                                        title: "Редактировать",
+                                        route: "edit",
+                                        active: false
+                                    },
+                                    {
+                                        title: "Действия",
+                                        route: "actions",
+                                        active: false
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            title: 'Страница 2',
+                            route: 'page',
+                            id: 101,
+                            active: false,
+                            data: {
+                                id: 101,
+                                buttons: [
+                                    {
+                                        title: "Просмотр",
+                                        route: "page",
+                                        active: false
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            title: 'Страница 3',
+                            route: 'page',
+                            id: 102,
+                            active: false,
+                            data: {
+                                id: 102,
+                                buttons: [
+                                    {
+                                        title: "Просмотр",
+                                        route: "page",
+                                        active: false
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            title: 'Страница 4',
+                            route: 'page',
+                            id: 104,
+                            active: false,
+                            data: {
+                                id: 104,
+                                buttons: [
+                                    {
+                                        title: "Просмотр",
+                                        route: "page",
+                                        active: false
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            title: 'Страница 5',
+                            route: 'page',
+                            id: 105,
+                            active: false,
+                            data: {
+                                id: 105,
+                                buttons: [
+                                    {
+                                        title: "Просмотр",
+                                        route: "page",
+                                        active: false
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            title: 'Страница 6',
+                            route: 'page',
+                            id: 106,
+                            active: false,
+                            data: {
+                                id: 106,
+                                buttons: [
+                                    {
+                                        title: "Просмотр",
+                                        route: "page",
+                                        active: false
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    created_at: "23.12.1995",
+                    buttons: [
+                        {
+                            title: "Просмотр",
+                            route: "view",
+                        },
+                        {
+                            title: "Скрипт",
+                            route: "script",
+                        },
+                        {
+                            title: "Безопасность",
+                            route: "security",
+                        },
+                        {
+                            title: "Экспортировать",
+                            route: "export",
+                        }
+                    ]
+                }
+            },
         ]
     },
     pages: {

@@ -1,15 +1,12 @@
 <template>
-    <v-app id="inspire">
+    <v-app>
         <v-navigation-drawer
-                src="https://avatars.mds.yandex.net/get-pdb/1817937/b439aee1-4c65-46dc-b628-3dcc84d1ae32/s1200"
-                color="rgba(0,0,0,0.9)"
                 disable-resize-watcher
                 hide-overlay
                 fixed
                 v-model="drawer"
                 app
-                dark
-                width="300"
+                width="280"
         >
             <aside-menu :data="data"></aside-menu>
         </v-navigation-drawer>
@@ -17,36 +14,59 @@
         <v-app-bar
                 elevation="0"
                 app
-                color="blue-grey lighten-5"
+                color="#f8f8ff"
         >
-            <v-btn text icon color="primary" :to="{ name: 'dashboard'}">
-                <v-icon>mdi-home</v-icon>
-            </v-btn>
             <v-spacer/>
-            <v-menu offset-y>
-                <template v-slot:activator="{ on }">
-                    <v-btn
-                            text
-                            v-on="on"
-                    >
-                        John Doe
-                    </v-btn>
-                </template>
-                <v-list>
+            <v-btn
+                    v-if="isDashboard"
+                    outlined
+                   rounded
+                   color="pink lighten-2"
+                   depressed :to="{ name: 'newProject'}" class="mr-4">
+                <v-icon left>mdi-plus</v-icon>
+                Создать проект
+            </v-btn>
+            <v-btn outlined
+                   rounded
+                   color="pink darken-4"
+                   depressed :to="{ name: 'dashboard'}" class="mr-4">
+                <v-icon left>mdi-home</v-icon>
+                Проекты
+            </v-btn>
+            <v-btn
+                    color="purple darken-4"
+                    @click="showMenu=true"
+                    outlined
+                    rounded
+                    depressed
+            >
+                <v-icon left>mdi-account</v-icon>
+                Личный кабинет
+            </v-btn>
+            <v-menu offset-y v-model="showMenu" :position-x="x"
+                    :position-y="60"
+                    absolute>
+                <v-list flat elevation="0">
                     <v-list-item :to="{name: 'profile'}">
-                        <v-list-item-title>Личный кабинет</v-list-item-title>
+                        <v-list-item-title>
+                            <v-icon small class="mr-3">mdi-account</v-icon>
+                            Личный кабинет
+                        </v-list-item-title>
                     </v-list-item>
                     <v-list-item :to="{name: 'landing'}">
-                        <v-list-item-title>Выйти</v-list-item-title>
+                        <v-list-item-title>
+                            <v-icon small class="mr-3">mdi-logout</v-icon>
+                            Выйти
+                        </v-list-item-title>
                     </v-list-item>
                 </v-list>
             </v-menu>
         </v-app-bar>
 
-        <v-content class="blue-grey lighten-5">
+        <v-content class="main-bg">
             <router-view />
         </v-content>
-        <v-footer class="blue-grey lighten-5">
+        <v-footer class="main-bg">
             <v-spacer/>
             <span>&copy; 2019</span>
         </v-footer>
@@ -59,11 +79,25 @@
     export default {
         data: () => ({
             drawer: true,
-            data: "123"
+            data: "123",
+            showMenu: false
         }),
         components: {
             "aside-menu": AsideMenu
         },
-
+        computed:{
+            x(){
+                return window.screen.width - 205;
+            },
+            isDashboard(){
+                return this.$route.name === 'dashboard';
+            }
+        },
     }
 </script>
+
+<style lang="scss" scoped>
+    .main-bg{
+        background-color: #f8f8ff;
+    }
+</style>
