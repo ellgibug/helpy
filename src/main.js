@@ -5,9 +5,12 @@ import App from './App.vue'
 import vuetify from './plugins/vuetify';
 import {store} from './store'
 import router from './router';
+import CKEditor from '@ckeditor/ckeditor5-vue';
+
 
 Vue.use(VueRouter);
 Vue.use(Vuex);
+Vue.use( CKEditor );
 
 
 Vue.config.productionTip = false

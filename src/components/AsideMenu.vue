@@ -1,6 +1,6 @@
 <template>
     <v-list>
-        <v-list-item v-if="getData.appendSearch" class="mb-5">
+        <v-list-item v-if="getData.appendSearch">
             <v-text-field
                     label="Поиск"
                     outlined
@@ -12,7 +12,7 @@
         <v-list-item  v-for="(item) in getData.items" :key="item.id" ripple three-line>
             <v-list-item-content>
                 <v-list-item-title class="font-weight-bold">{{ item.title }}</v-list-item-title>
-                <v-list-item-subtitle v-if="item.data" class="my-2">
+                <v-list-item-subtitle v-if="item.data && item.data.pages" class="my-2">
                     <span v-if="item.data.pages">{{item.data.pages.length}} страниц(ы) | </span>
                     <span>{{ item.data.created_at }}</span>
                 </v-list-item-subtitle>
