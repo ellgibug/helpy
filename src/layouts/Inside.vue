@@ -66,10 +66,10 @@
         <v-content class="main-bg">
             <router-view />
         </v-content>
-        <v-footer class="main-bg">
-            <v-spacer/>
-            <span>&copy; 2019</span>
-        </v-footer>
+<!--        <v-footer class="main-bg" color="transparent">-->
+<!--            <v-spacer/>-->
+<!--            <span>&copy; 2019</span>-->
+<!--        </v-footer>-->
     </v-app>
 </template>
 
@@ -96,8 +96,32 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
     .main-bg{
         background-color: #f8f8ff;
+    }
+    .v-card{
+        border-radius: 28px !important;
+        .v-card__text{
+            border-top: 1px solid rgba(0, 0, 0, 0.12);
+            padding: 16px;
+        }
+        .v-card__actions{
+            padding: 16px;
+        }
+    }
+    .code{
+        font-size: 16px;
+        padding-bottom: 5px;
+        border-bottom: 5px dotted rgba(0, 0, 0, 0.12);
+        display: inline-block;
+        font-family: 'IBM Plex Mono', monospace;
+        a{
+            text-decoration: none;
+            color: inherit;
+        }
+    }
+    .code:hover{
+        color: #FF4081;
     }
 </style>
