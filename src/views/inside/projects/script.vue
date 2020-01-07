@@ -7,33 +7,20 @@
                     <v-card-title>Скрипт для установки на сайт</v-card-title>
                     <v-card-text>
                         <p>Скопируйте и вставьте данный код в секцию body вниз</p>
-                        <kbd>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</kbd>
+                        <div class="code">
+                            <a href="https://fonts.google.com/?subset=cyrillic-ext">https://fonts.google.com/?subset=cyrillic-ext</a>
+                        </div>
                     </v-card-text>
-                </v-card>
-            </v-col>
-        </v-row>
-        <v-row>
-            <v-col>
-                <v-card elevation="0" outlined>
-                    <v-card-title>Доступен на сайтах</v-card-title>
-                    <v-card-text>
-                        <v-simple-table>
-                            <template v-slot:default>
-                                <thead>
-                                <tr>
-                                    <th class="text-left">Сайт</th>
-                                    <th class="text-left">Действие</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr v-for="item in desserts2" :key="item.name">
-                                    <td>{{ item.name }}</td>
-                                    <td>{{ item.calories }}</td>
-                                </tr>
-                                </tbody>
-                            </template>
-                        </v-simple-table>
-                    </v-card-text>
+                    <v-card-actions>
+                        <v-btn
+                                dark
+                                small
+                                rounded
+                                color="pink accent-2"
+                                depressed>
+                            Скопировать
+                        </v-btn>
+                    </v-card-actions>
                 </v-card>
             </v-col>
         </v-row>
@@ -43,7 +30,78 @@
                     <v-card-title>Конфигурация</v-card-title>
                     <v-card-text>
                         <p>Количество статей для показа</p>
-                        <p>Темная/светлая тема</p>
+                        <v-radio-group v-model="radio1" :mandatory="false">
+                            <v-radio color="pink accent-2" label="3 статьи" value="3"></v-radio>
+                            <v-radio color="pink accent-2" label="4 статьи" value="4"></v-radio>
+                            <v-radio color="pink accent-2" label="5 статей" value="5"></v-radio>
+                        </v-radio-group>
+                        <p>Тема оформления</p>
+                        <v-radio-group v-model="radio2" :mandatory="false">
+                            <v-radio color="pink accent-4" label="Светлая тема" value="light"></v-radio>
+                            <v-radio color="pink accent-4" label="Темная тема" value="dark"></v-radio>
+                        </v-radio-group>
+                    </v-card-text>
+                </v-card>
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col>
+                <v-card elevation="0" outlined>
+                    <v-card-title>
+                        Доступен на сайтах
+                        <v-btn
+                                class="ml-3"
+                                small
+                                dark
+                                rounded
+                                color="pink accent-2"
+                                depressed>
+                            <v-icon left>mdi-plus</v-icon>
+                            Добавить
+                        </v-btn>
+                        <v-spacer/>
+                        <v-text-field
+                                color="pink darken-2"
+                                v-model="search"
+                                label="Поиск"
+                                outlined
+                                rounded
+                                dense
+                                single-line
+                                hide-details
+                                style="max-width: 300px"
+                        ></v-text-field>
+                    </v-card-title>
+                    <v-card-text class="px-0">
+                        <v-data-table
+                                :items-per-page="5"
+                                :headers="headers"
+                                :items="desserts"
+                                :search="search"
+                                :footer-props="{
+                                  disableItemsPerPage: true
+                                }"
+                        >
+                            <template v-slot:item.action="{ item }">
+                                <v-btn
+                                        class="mr-3"
+                                        outlined
+                                        x-small
+                                        rounded
+                                        color="pink darken-1"
+                                        depressed>
+                                    Изменить
+                                </v-btn>
+                                <v-btn
+                                        outlined
+                                        x-small
+                                        rounded
+                                        color="pink darken-1"
+                                        depressed>
+                                    Удалить
+                                </v-btn>
+                            </template>
+                        </v-data-table>
                     </v-card-text>
                 </v-card>
             </v-col>
@@ -67,26 +125,29 @@
 
         data(){
             return{
-                desserts2: [
+                radio1: "3",
+                radio2: 'light',
+                search: '',
+                headers: [
                     {
-                        name: 'Frozen Yogurt',
-                        calories: 159,
+                        text: 'Сайт',
+                        align: 'left',
+                        sortable: false,
+                        value: 'name',
+                        width: '70%'
+                    },
+                    { text: 'Действие', value: 'action' },
+
+                ],
+                desserts: [
+                    {
+                        name: 'http://localhost:8080/',
                     },
                     {
-                        name: 'Ice cream sandwich',
-                        calories: 237,
+                        name: 'http://localhost:8081/',
                     },
                     {
-                        name: 'Eclair',
-                        calories: 262,
-                    },
-                    {
-                        name: 'Cupcake',
-                        calories: 305,
-                    },
-                    {
-                        name: 'Gingerbread',
-                        calories: 356,
+                        name: 'http://localhost:8082/',
                     }
                 ],
             }
@@ -95,7 +156,7 @@
         computed:{
             ...mapGetters("menuStates", ["getData"]),
             title(){
-                return `Проект "${this.$route.params.id}" - настройки скрипта`;
+                return `Настройки скрипта проекта ${this.$route.params.id}`;
             }
         },
 

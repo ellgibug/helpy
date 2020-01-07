@@ -4,6 +4,19 @@
         <v-row>
             <v-col>
                 <v-card elevation="0" outlined>
+                    <v-card-title>Формирование ссылки на проект</v-card-title>
+                    <v-card-text>
+                        <v-radio-group v-model="version" :mandatory="false">
+                            <v-radio color="pink accent-2" label="Использовать hash проекта" value="hash"></v-radio>
+                            <v-radio color="pink accent-2" label="Использовать название проекта" value="name"></v-radio>
+                        </v-radio-group>
+                    </v-card-text>
+                </v-card>
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col>
+                <v-card elevation="0" outlined>
                     <v-card-title>Проект в интернете с оглавлением и поиском</v-card-title>
                     <v-card-text>
                         <div class="code">
@@ -98,7 +111,7 @@
 
         data(){
             return{
-
+                version: 'hash',
             }
         },
 

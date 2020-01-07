@@ -18,6 +18,15 @@
         >
             <v-spacer/>
             <v-btn
+                    v-if="isView"
+                    outlined
+                    rounded
+                    color="pink lighten-2"
+                    depressed :to="{name: 'newPage', params: { id: $route.params.id }}" class="mr-4">
+                <v-icon left>mdi-plus</v-icon>
+                Создать страницу
+            </v-btn>
+            <v-btn
                     v-if="isDashboard"
                     outlined
                    rounded
@@ -91,6 +100,10 @@
             },
             isDashboard(){
                 return this.$route.name === 'dashboard';
+            },
+            isView(){
+                return this.$route.name === 'view';
+
             }
         },
     }
@@ -102,6 +115,7 @@
     }
     .v-card{
         border-radius: 28px !important;
+        overflow: hidden;
         .v-card__text{
             border-top: 1px solid rgba(0, 0, 0, 0.12);
             padding: 16px;

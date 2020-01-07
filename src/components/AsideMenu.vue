@@ -2,8 +2,11 @@
     <v-list>
         <v-list-item v-if="getData.appendSearch">
             <v-text-field
+                    single-line
+                    color="pink darken-2"
                     label="Поиск"
                     outlined
+                    rounded
                     hide-details
                     dense
                     class="my-3"

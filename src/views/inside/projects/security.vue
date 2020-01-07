@@ -4,86 +4,127 @@
         <v-row>
             <v-col>
                 <v-card elevation="0" outlined>
-                    <v-card-title>Версия проекта</v-card-title>
+                    <v-card-title>Видимость проекта</v-card-title>
                     <v-card-text>
                         <v-radio-group v-model="version" :mandatory="false">
-                            <v-radio label="Публичная версия - видна всем в интернете" value="public"></v-radio>
-                            <v-radio label="Приватная версия - видна только сотрудникам организации" value="private"></v-radio>
+                            <v-radio color="pink accent-2" label="Публичная версия - видна всем в интернете" value="public"></v-radio>
+                            <v-radio color="pink accent-2" label="Приватная версия - видна только сотрудникам организации" value="private"></v-radio>
                         </v-radio-group>
-                        <p>Вы можете использовать хэш или название проекта в url. Просмотр проекта доступен во складке "Экспорт".</p>
                     </v-card-text>
                 </v-card>
             </v-col>
         </v-row>
         <v-row>
-            <v-col cols="12" xl="6" lg="6" md="12" sm="12" xs="12">
+            <v-col>
                 <v-card elevation="0" outlined>
-                    <v-card-title>Блокировка проекта</v-card-title>
+                    <v-card-title>Блокировка и удаление</v-card-title>
                     <v-card-text>
-                        <p>Проект активен.
-                            Вы можете деактивировать проект.
+                        <p>Проект активен. Вы можете деактивировать проект.
                             Это значит, что он исчезнет из поиска и будет недоступен для сотрдников организации.
-                            Вы сможете активировать проект спустя 24 часа.
-                            <br>
-                            <a href="">Деактивировать проект</a></p>
-                    </v-card-text>
-                </v-card>
-            </v-col>
-            <v-col cols="12" xl="6" lg="6" md="12" sm="12" xs="12">
-                <v-card elevation="0" outlined>
-                    <v-card-title>Удаление проекта</v-card-title>
-                    <v-card-text>
-                        <p>При удалении проекта Вы уже не сможете его восстановить.
-                            <br>
-                            <a href="">Удалить проект</a></p>
+                            Вы сможете активировать проект спустя 24 часа. </p>
+                        <v-btn
+                                dark
+                                small
+                                rounded
+                                color="pink accent-2"
+                                depressed>
+                            Деактивировать
+                        </v-btn>
+                        <p class="mt-8">При удалении проекта Вы уже не сможете его восстановить.</p>
+                        <v-btn
+                                dark
+                                small
+                                rounded
+                                color="pink accent-4"
+                                depressed>
+                            Удалить
+                        </v-btn>
                     </v-card-text>
                 </v-card>
             </v-col>
         </v-row>
         <v-row>
-            <v-col cols="12" xl="6" lg="6" md="12" sm="12" xs="12">
+            <v-col>
                 <v-card elevation="0" outlined>
-                    <v-card-title>Список последних изменений</v-card-title>
-                    <v-card-text>
-                        <v-simple-table>
-                            <template v-slot:default>
-                                <thead>
-                                <tr>
-                                    <th class="text-left">Имя</th>
-                                    <th class="text-left">Страница (+дата)</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr v-for="item in desserts" :key="item.name">
-                                    <td>{{ item.name }}</td>
-                                    <td>{{ item.calories }}</td>
-                                </tr>
-                                </tbody>
+                    <v-card-title>
+                        Права доступа сотрудников
+                        <v-spacer/>
+                        <v-text-field
+                                color="pink darken-2"
+                                v-model="search"
+                                label="Поиск"
+                                outlined
+                                rounded
+                                dense
+                                single-line
+                                hide-details
+                                style="max-width: 300px"
+                        ></v-text-field>
+                    </v-card-title>
+                    <v-card-text class="px-0">
+                        <v-data-table
+                                :items-per-page="5"
+                                :headers="headers"
+                                :items="desserts"
+                                :search="search"
+                                :footer-props="{
+                                  disableItemsPerPage: true
+                                }"
+                        >
+                            <template v-slot:item.action="{ item }">
+                                <v-btn
+                                        outlined
+                                        x-small
+                                        rounded
+                                        color="pink darken-1"
+                                        depressed>
+                                    Изменить
+                                </v-btn>
                             </template>
-                        </v-simple-table>
+                        </v-data-table>
                     </v-card-text>
                 </v-card>
             </v-col>
-            <v-col cols="12" xl="6" lg="6" md="12" sm="12" xs="12">
+        </v-row>
+        <v-row>
+            <v-col>
                 <v-card elevation="0" outlined>
-                    <v-card-title>Права доступа сотрудников</v-card-title>
-                    <v-card-text>
-                        <v-simple-table>
-                            <template v-slot:default>
-                                <thead>
-                                <tr>
-                                    <th class="text-left">Сотрудник</th>
-                                    <th class="text-left">Права (да или нет)</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr v-for="item in desserts2" :key="item.name">
-                                    <td>{{ item.name }}</td>
-                                    <td>{{ item.calories }}</td>
-                                </tr>
-                                </tbody>
+                    <v-card-title>
+                        Последние изменения
+                        <v-spacer/>
+                        <v-text-field
+                                color="pink darken-2"
+                                v-model="search2"
+                                label="Поиск"
+                                outlined
+                                rounded
+                                dense
+                                single-line
+                                hide-details
+                                style="max-width: 300px"
+                        ></v-text-field>
+                    </v-card-title>
+                    <v-card-text class="px-0">
+                        <v-data-table
+                                :items-per-page="5"
+                                :headers="headers2"
+                                :items="desserts2"
+                                :search="search2"
+                                :footer-props="{
+                                  disableItemsPerPage: true
+                                }"
+                        >
+                            <template v-slot:item.action="{ item }">
+                                <v-btn
+                                        outlined
+                                        x-small
+                                        rounded
+                                        color="pink darken-1"
+                                        depressed>
+                                    Перейти
+                                </v-btn>
                             </template>
-                        </v-simple-table>
+                        </v-data-table>
                     </v-card-text>
                 </v-card>
             </v-col>
@@ -108,68 +149,60 @@
         data () {
             return {
                 version: 'public',
+                search: '',
+                search2: '',
+                headers: [
+                    {
+                        text: 'ФИО',
+                        align: 'left',
+                        sortable: false,
+                        value: 'name',
+                    },
+                    { text: 'Роль', value: 'role' },
+                    { text: 'Действие', value: 'action' },
+
+                ],
                 desserts: [
                     {
-                        name: 'Frozen Yogurt',
-                        calories: 159,
+                        name: 'Иванов И.И.',
+                        role: "Сотрудник",
                     },
                     {
-                        name: 'Ice cream sandwich',
-                        calories: 237,
+                        name: 'Петров П.П.',
+                        role: "Сотрудник",
                     },
                     {
-                        name: 'Eclair',
-                        calories: 262,
-                    },
+                        name: 'Сидоров С.С.',
+                        role: "Сотрудник",
+                    }
+                ],
+                headers2: [
                     {
-                        name: 'Cupcake',
-                        calories: 305,
+                        text: 'ФИО',
+                        align: 'left',
+                        sortable: false,
+                        value: 'name',
                     },
-                    {
-                        name: 'Gingerbread',
-                        calories: 356,
-                    },
-                    {
-                        name: 'Jelly bean',
-                        calories: 375,
-                    },
-                    {
-                        name: 'Lollipop',
-                        calories: 392,
-                    },
-                    {
-                        name: 'Honeycomb',
-                        calories: 408,
-                    },
-                    {
-                        name: 'Donut',
-                        calories: 452,
-                    },
-                    {
-                        name: 'KitKat',
-                        calories: 518,
-                    },
+                    { text: 'Дата', value: 'date' },
+                    { text: 'Страница', value: 'page' },
+                    { text: 'Действие', value: 'action' },
+
                 ],
                 desserts2: [
                     {
-                        name: 'Frozen Yogurt',
-                        calories: 159,
+                        name: 'Иванов И.И.',
+                        date: "23.12.2019",
+                        page: "Страница 1",
                     },
                     {
-                        name: 'Ice cream sandwich',
-                        calories: 237,
+                        name: 'Петров П.П.',
+                        date: "12.12.2019",
+                        page: "Страница 2",
                     },
                     {
-                        name: 'Eclair',
-                        calories: 262,
-                    },
-                    {
-                        name: 'Cupcake',
-                        calories: 305,
-                    },
-                    {
-                        name: 'Gingerbread',
-                        calories: 356,
+                        name: 'Сидоров С.С.',
+                        date: "17.12.2019",
+                        page: "Страница 3",
                     }
                 ],
             }
@@ -178,7 +211,7 @@
         computed:{
             ...mapGetters("menuStates", ["getData"]),
             title(){
-                return `Проект "${this.$route.params.id}" - настройки безопасности`;
+                return `Настройки безопасности проекта ${this.$route.params.id}`;
             }
         },
 
