@@ -34,5 +34,14 @@ export const profile = [
             layout: 'Inside',
             title: 'Profile'
         }
+    },
+    {
+        path: "/appeals",
+        name: "appeals",
+        component: () => import("../views/inside/profile/appeals"),
+        meta: {
+            layout: 'Inside',
+            title: 'Profile'
+        }
     }
 ];

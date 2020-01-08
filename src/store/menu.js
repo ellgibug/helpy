@@ -49,7 +49,8 @@ const state = {
                         }
                     ]
                 }
-            },{
+            },
+            {
                 title: 'Мои проекты',
                 route: 'profile',
                 id: 3,
@@ -60,6 +61,22 @@ const state = {
                         {
                             title: "Просмотр",
                             route: "projects",
+                            active: false
+                        }
+                    ]
+                }
+            },
+            {
+                title: 'Техподдержка',
+                route: 'appeals',
+                id: 4,
+                active: false,
+                data:{
+                    id: 3,
+                    buttons: [
+                        {
+                            title: "Просмотр",
+                            route: "appeals",
                             active: false
                         }
                     ]

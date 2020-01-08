@@ -1,34 +1,55 @@
 <template>
     <v-container fluid>
-        <h1>Пользователи организции</h1>
-        <v-row>
-            <v-col>
-                <v-card elevation="0" outlined>
-                    <v-card-title>Пригласить пользователя</v-card-title>
-                </v-card>
-            </v-col>
+        <v-row class="px-4">
+            <h1>Пользователи организации</h1>
+            <v-btn
+                    class="ml-auto mt-2"
+                    dark
+                    rounded
+                    color="pink accent-2"
+                    depressed>
+                Пригласить
+            </v-btn>
         </v-row>
         <v-row>
             <v-col>
                 <v-card elevation="0" outlined>
-                    <v-card-title>Пользователи</v-card-title>
-                    <v-card-text>
-                        <v-simple-table>
-                            <template v-slot:default>
-                                <thead>
-                                <tr>
-                                    <th class="text-left">ФИО, роль</th>
-                                    <th class="text-left">Действие</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr v-for="item in desserts2" :key="item.name">
-                                    <td>{{ item.name }}</td>
-                                    <td>{{ item.calories }}</td>
-                                </tr>
-                                </tbody>
+                    <v-card-title>
+                        Все пользователи
+                        <v-spacer/>
+                        <v-text-field
+                                color="pink darken-2"
+                                v-model="search2"
+                                label="Поиск"
+                                outlined
+                                rounded
+                                dense
+                                single-line
+                                hide-details
+                                style="max-width: 300px"
+                        ></v-text-field>
+                    </v-card-title>
+                    <v-card-text class="px-0">
+                        <v-data-table
+                                :items-per-page="7"
+                                :headers="headers2"
+                                :items="desserts2"
+                                :search="search2"
+                                :footer-props="{
+                                  disableItemsPerPage: true
+                                }"
+                        >
+                            <template v-slot:item.action="{ item }">
+                                <v-btn
+                                        outlined
+                                        x-small
+                                        rounded
+                                        color="pink darken-1"
+                                        depressed>
+                                    Перейти
+                                </v-btn>
                             </template>
-                        </v-simple-table>
+                        </v-data-table>
                     </v-card-text>
                 </v-card>
             </v-col>
@@ -52,28 +73,66 @@
 
         data(){
             return{
+                search2: '',
+                headers2: [
+                    {
+                        text: 'ФИО',
+                        align: 'left',
+                        sortable: false,
+                        value: 'name',
+                    },
+                    { text: 'Тип', value: 'type' },
+                    { text: 'Email', value: 'email' },
+                    { text: 'Действие', value: 'action' },
+
+                ],
                 desserts2: [
                     {
-                        name: 'Frozen Yogurt',
-                        calories: 159,
+                        name: 'Иванов И.И.',
+                        type: "сотрудник",
+                        email: "test@test.ru",
                     },
                     {
-                        name: 'Ice cream sandwich',
-                        calories: 237,
+                        name: 'Петров П.П.',
+                        type: "сотрудник",
+                        email: "test@test.ru",
                     },
                     {
-                        name: 'Eclair',
-                        calories: 262,
+                        name: 'Сидоров С.С.',
+                        type: "сотрудник",
+                        email: "test@test.ru",
                     },
                     {
-                        name: 'Cupcake',
-                        calories: 305,
+                        name: 'Иванов И.И.',
+                        type: "сотрудник",
+                        email: "test@test.ru",
                     },
                     {
-                        name: 'Gingerbread',
-                        calories: 356,
+                        name: 'Петров П.П.',
+                        type: "сотрудник",
+                        email: "test@test.ru",
+                    },
+                    {
+                        name: 'Сидоров С.С.',
+                        type: "сотрудник",
+                        email: "test@test.ru",
+                    },
+                    {
+                        name: 'Иванов И.И.',
+                        type: "сотрудник",
+                        email: "test@test.ru",
+                    },
+                    {
+                        name: 'Петров П.П.',
+                        type: "сотрудник",
+                        email: "test@test.ru",
+                    },
+                    {
+                        name: 'Сидоров С.С.',
+                        type: "сотрудник",
+                        email: "test@test.ru",
                     }
-                ],
+                ]
             }
         },
 
