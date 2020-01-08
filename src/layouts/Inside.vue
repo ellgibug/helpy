@@ -138,4 +138,11 @@
     .code:hover{
         color: #FF4081;
     }
+    .pink-link{
+        text-decoration: none;
+        color: #FF4081 !important;
+    }
+    .pink-link:hover{
+        color: #F48FB1 !important;
+    }
 </style>
