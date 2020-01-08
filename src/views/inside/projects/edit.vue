@@ -52,7 +52,7 @@
                     <v-card-text>
                         <v-radio-group v-model="priority" :mandatory="false">
                             <v-radio color="pink accent-2" label="По умолчанию" value="default"></v-radio>
-                            <v-radio color="pink accent-2" label="Высокий приоритет" value="hight"></v-radio>
+                            <v-radio color="pink accent-2" label="Высокий приоритет" value="high"></v-radio>
                             <v-radio color="pink accent-2" label="Низкий приоритет" value="low"></v-radio>
                         </v-radio-group>
                     </v-card-text>
@@ -186,11 +186,12 @@
 <style lang="scss" scoped>
     .document-editor {
         margin-top: 20px;
-        border: 1px solid var(--ck-color-base-border);
-        border-radius: var(--ck-border-radius);
+        border: 1px solid rgba(0,0,0,0.16);
+        border-radius: 2px;
+        overflow: hidden;
 
         /* Set vertical boundaries for the document editor. */
-        max-height: 700px;
+        max-height: 500px;
 
         /* This element is a flex container for easier rendering. */
         display: flex;
@@ -202,10 +203,10 @@
         z-index: 1;
 
         /* Create the illusion of the toolbar floating over the editable. */
-        box-shadow: 0 0 5px hsla( 0,0%,0%,.2 );
+        box-shadow: none;
 
         /* Use the CKEditor CSS variables to keep the UI consistent. */
-        border-bottom: 1px solid var(--ck-color-toolbar-border);
+        border-bottom: 0;
     }
 
     /* Adjust the look of the toolbar inside the container. */
@@ -217,7 +218,7 @@
     /* Make the editable container look like the inside of a native word processor application. */
     .document-editor__editable-container {
         padding: calc( 2 * var(--ck-spacing-large) );
-        background: var(--ck-color-base-foreground);
+        background: #e9edf5;
 
         /* Make it possible to scroll the "page" of the edited content. */
         overflow-y: scroll;
@@ -225,7 +226,7 @@
 
     .document-editor__editable-container .ck-editor__editable {
         /* Set the dimensions of the "page". */
-        width: 15.8cm;
+        width: 25.8cm;
         min-height: 21cm;
 
         /* Keep the "page" off the boundaries of the container. */
@@ -236,7 +237,7 @@
         background: white;
 
         /* The "page" should cast a slight shadow (3D illusion). */
-        box-shadow: 0 0 5px hsla( 0,0%,0%,.1 );
+        box-shadow: 0 0 15px hsla( 0,0%,0%,.1 );
 
         /* Center the "page". */
         margin: 0 auto;

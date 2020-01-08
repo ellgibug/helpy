@@ -1,7 +1,5 @@
 <template>
-    <v-container
-
-    >
+    <v-container>
         <h1>{{title}}</h1>
         <v-row>
             <v-col ref="editorWrapper">
@@ -12,11 +10,143 @@
                             <ckeditor
                                     :editor="editor"
                                     :config="editorConfig"
+                                    v-model="editorData"
                                     @ready="onReady"
                             ></ckeditor>
                         </div>
                     </div>
                 </div>
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col>
+                <v-card elevation="0" outlined>
+                    <v-card-title>Видимость страницы</v-card-title>
+                    <v-card-text>
+                        <v-radio-group v-model="version" :mandatory="false">
+                            <v-radio color="pink accent-2" label="Публичная версия - видна всем в интернете" value="public"></v-radio>
+                            <v-radio color="pink accent-2" label="Приватная версия - видна только сотрудникам организации" value="private"></v-radio>
+                        </v-radio-group>
+                    </v-card-text>
+                </v-card>
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col>
+                <v-card elevation="0" outlined>
+                    <v-card-title>
+                        Права доступа сотрудников
+                        <v-spacer/>
+                        <v-text-field
+                                color="pink darken-2"
+                                v-model="search"
+                                label="Поиск"
+                                outlined
+                                rounded
+                                dense
+                                single-line
+                                hide-details
+                                style="max-width: 300px"
+                        ></v-text-field>
+                    </v-card-title>
+                    <v-card-text class="px-0">
+                        <v-data-table
+                                :items-per-page="5"
+                                :headers="headers"
+                                :items="desserts"
+                                :search="search"
+                                :footer-props="{
+                                  disableItemsPerPage: true
+                                }"
+                        >
+                            <template v-slot:item.action="{ item }">
+                                <v-btn
+                                        outlined
+                                        x-small
+                                        rounded
+                                        color="pink darken-1"
+                                        depressed>
+                                    Изменить
+                                </v-btn>
+                            </template>
+                        </v-data-table>
+                    </v-card-text>
+                </v-card>
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col>
+                <v-card elevation="0" outlined>
+                    <v-card-title>
+                        Показывать сразу на страницах
+                        <v-btn
+                                class="ml-3"
+                                small
+                                dark
+                                rounded
+                                color="pink accent-2"
+                                depressed>
+                            <v-icon left>mdi-plus</v-icon>
+                            Добавить
+                        </v-btn>
+                        <v-spacer/>
+                        <v-text-field
+                                color="pink darken-2"
+                                v-model="search2"
+                                label="Поиск"
+                                outlined
+                                rounded
+                                dense
+                                single-line
+                                hide-details
+                                style="max-width: 300px"
+                        ></v-text-field>
+                    </v-card-title>
+                    <v-card-text class="px-0">
+                        <v-data-table
+                                :items-per-page="5"
+                                :headers="headers2"
+                                :items="desserts2"
+                                :search="search2"
+                                :footer-props="{
+                                  disableItemsPerPage: true
+                                }"
+                        >
+                            <template v-slot:item.action="{ item }">
+                                <v-btn
+                                        class="mr-3"
+                                        outlined
+                                        x-small
+                                        rounded
+                                        color="pink darken-1"
+                                        depressed>
+                                    Изменить
+                                </v-btn>
+                                <v-btn
+                                        outlined
+                                        x-small
+                                        rounded
+                                        color="pink darken-1"
+                                        depressed>
+                                    Удалить
+                                </v-btn>
+                            </template>
+                        </v-data-table>
+                    </v-card-text>
+                </v-card>
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col class="text-center py-7">
+                <v-btn
+                        class="px-12"
+                        dark
+                        large
+                        rounded
+                        color="pink accent-2"
+                        depressed>
+                    Создать
+                </v-btn>
             </v-col>
         </v-row>
     </v-container>
@@ -49,40 +179,69 @@
 
         data(){
             return{
+                version: 'public',
+                search: '',
+                headers: [
+                    {
+                        text: 'ФИО',
+                        align: 'left',
+                        sortable: false,
+                        value: 'name',
+                    },
+                    { text: 'Роль', value: 'role' },
+                    { text: 'Действие', value: 'action' },
+
+                ],
+                desserts: [
+                    {
+                        name: 'Иванов И.И.',
+                        role: "Сотрудник",
+                    },
+                    {
+                        name: 'Петров П.П.',
+                        role: "Сотрудник",
+                    },
+                    {
+                        name: 'Сидоров С.С.',
+                        role: "Сотрудник",
+                    }
+                ],
+                search2: '',
+                headers2: [
+                    {
+                        text: 'Страница',
+                        align: 'left',
+                        sortable: false,
+                        value: 'name',
+                        width: '70%'
+                    },
+                    { text: 'Действие', value: 'action' },
+
+                ],
+                desserts2: [
+                    {
+                        name: 'http://localhost:8080/',
+                    },
+                    {
+                        name: 'http://localhost:8081/',
+                    },
+                    {
+                        name: 'http://localhost:8082/',
+                    }
+                ],
                 editor: DocumentEditor,
                 editorData: '<p>Content of the editor.</p>',
                 editorConfig: {
                     // The configuration of the editor.
                 },
-                desserts2: [
-                    {
-                        name: 'Frozen Yogurt',
-                        calories: 159,
-                    },
-                    {
-                        name: 'Ice cream sandwich',
-                        calories: 237,
-                    },
-                    {
-                        name: 'Eclair',
-                        calories: 262,
-                    },
-                    {
-                        name: 'Cupcake',
-                        calories: 305,
-                    },
-                    {
-                        name: 'Gingerbread',
-                        calories: 356,
-                    }
-                ],
+
             }
         },
 
         computed:{
             ...mapGetters("menuStates", ["getData", "getProjectById"]),
             title(){
-                return `Проект "${this.$route.params.id}" - создать страницу`;
+                return `Создать страницу в проекте ${this.$route.params.id}`;
             },
 
         },
@@ -101,8 +260,9 @@
 <style lang="scss" scoped>
     .document-editor {
         margin-top: 20px;
-        border: 1px solid var(--ck-color-base-border);
-        border-radius: var(--ck-border-radius);
+        border: 1px solid rgba(0,0,0,0.16);
+        border-radius: 2px;
+        overflow: hidden;
 
         /* Set vertical boundaries for the document editor. */
         max-height: 500px;
@@ -117,10 +277,10 @@
         z-index: 1;
 
         /* Create the illusion of the toolbar floating over the editable. */
-        box-shadow: 0 0 5px hsla( 0,0%,0%,.2 );
+        box-shadow: none;
 
         /* Use the CKEditor CSS variables to keep the UI consistent. */
-        border-bottom: 1px solid var(--ck-color-toolbar-border);
+        border-bottom: 0;
     }
 
     /* Adjust the look of the toolbar inside the container. */
@@ -132,7 +292,7 @@
     /* Make the editable container look like the inside of a native word processor application. */
     .document-editor__editable-container {
         padding: calc( 2 * var(--ck-spacing-large) );
-        background: var(--ck-color-base-foreground);
+        background: #e9edf5;
 
         /* Make it possible to scroll the "page" of the edited content. */
         overflow-y: scroll;
@@ -140,7 +300,7 @@
 
     .document-editor__editable-container .ck-editor__editable {
         /* Set the dimensions of the "page". */
-        width: 15.8cm;
+        width: 25.8cm;
         min-height: 21cm;
 
         /* Keep the "page" off the boundaries of the container. */
@@ -151,7 +311,7 @@
         background: white;
 
         /* The "page" should cast a slight shadow (3D illusion). */
-        box-shadow: 0 0 5px hsla( 0,0%,0%,.1 );
+        box-shadow: 0 0 15px hsla( 0,0%,0%,.1 );
 
         /* Center the "page". */
         margin: 0 auto;
