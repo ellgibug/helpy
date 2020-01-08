@@ -145,4 +145,17 @@
     .pink-link:hover{
         color: #F48FB1 !important;
     }
+
+    .code-block{
+        margin: 30px 0;
+        padding: 20px;
+        font-size: 14px;
+        background: #546E7A;
+        border-radius: 28px;
+        pre{
+            color: #f8f8ff;
+            font-family: 'IBM Plex Mono', monospace;
+
+        }
+    }
 </style>

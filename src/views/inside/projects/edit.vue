@@ -33,18 +33,12 @@
                         </v-btn>
                     </v-card-title>
                     <v-card-text>
-                        <v-row>
-                            <v-col>
-                                <p>Родительская страница</p>
-                                <p class="pa-0 ma-0"><a class="pink-link" href="">Страница 1</a></p>
-                            </v-col>
-                            <v-col>
-                                <p>Дочерние страницы</p>
-                                <p class="pa-0 ma-0"><a class="pink-link" href="">Страница 2</a></p>
-                                <p class="pa-0 ma-0"><a class="pink-link" href="">Страница 3</a></p>
-                                <p class="pa-0 ma-0"><a class="pink-link" href="">Страница 4</a></p>
-                            </v-col>
-                        </v-row>
+                        <div class="my-3">
+                            <v-chip class="mr-3" color="pink accent-2" dark>Родительская страница</v-chip>
+                            <v-chip class="mr-3" color="pink accent-2" dark outlined>Дочерняя страница 1</v-chip>
+                            <v-chip class="mr-3" color="pink accent-2" dark outlined>Дочерняя страница 2</v-chip>
+                            <v-chip class="mr-3" color="pink accent-2" dark outlined>Дочерняя страница 3</v-chip>
+                        </div>
                     </v-card-text>
                 </v-card>
             </v-col>
