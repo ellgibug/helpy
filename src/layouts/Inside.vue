@@ -109,7 +109,7 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .main-bg{
         background-color: #f8f8ff;
     }
