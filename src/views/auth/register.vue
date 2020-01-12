@@ -8,22 +8,18 @@
                 justify="center"
         >
             <v-col class="text-center">
-                <h1>Создать аккаунт</h1>
-                <v-card max-width="600px" class="mx-auto my-3">
+                <h1 class="display-1 mb-5">Создать аккаунт</h1>
+                <v-card max-width="400px" class="mx-auto my-3" style="border-radius: 28px" hover>
                     <v-card-text>
                         <v-container>
                             <v-row>
                                 <v-col cols="12">
-                                    <v-text-field label="Имя*" required></v-text-field>
+                                    <v-text-field label="Имя*" required outlined single-line></v-text-field>
+                                    <v-text-field label="E-mail*" required outlined single-line></v-text-field>
+                                    <v-text-field label="Пароль*" type="password" required outlined single-line></v-text-field>
                                 </v-col>
                                 <v-col cols="12">
-                                    <v-text-field label="E-mail*" required></v-text-field>
-                                </v-col>
-                                <v-col cols="12">
-                                    <v-text-field label="Пароль*" type="password" required></v-text-field>
-                                </v-col>
-                                <v-col cols="12">
-                                    <v-btn color="primary" :to="{name: 'dashboard'}">Зарегистрироваться</v-btn>
+                                    <v-btn :to="{name: 'dashboard'}" rounded color="light-blue accent-3" depressed>Зарегистрироваться</v-btn>
                                 </v-col>
                             </v-row>
                         </v-container>

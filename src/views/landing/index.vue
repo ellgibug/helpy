@@ -5,7 +5,8 @@
             <v-container>
                 <v-row align="center">
                     <v-col>
-                        <h2 class="display-1 text-center">Вся база знаний на Ваших сайтах</h2>
+                        <h2 class="display-1 text-center mb-10">Вся база знаний на Ваших сайтах</h2>
+                        <p class="caption text-center font-weight-bold mt-10">Создайте свою базу знаний | Установите скрипт на сайт | Начните использование HELPY</p>
                     </v-col>
                     <v-col>
                         <v-card hover style="border-radius: 28px">
