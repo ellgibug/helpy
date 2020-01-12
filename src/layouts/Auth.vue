@@ -1,25 +1,20 @@
 <template>
-    <v-app id="inspire">
-        <v-app-bar
-                app
-                color="indigo"
-                dark
-        >
-            <v-toolbar-title>
-                <router-link :to="{name: 'landing'}">
-                    Helpy
-                </router-link>
-            </v-toolbar-title>
+    <v-app>
+        <v-app-bar app elevate-on-scroll>
+            <v-container>
+                <v-row class="px-3">
+                    <v-toolbar-title>
+                        <router-link :to="{name: 'landing'}">
+                            <v-img src="../assets/логотип.svg" width="110px"></v-img>
+                        </router-link>
+                    </v-toolbar-title>
+                </v-row>
+            </v-container>
         </v-app-bar>
 
-        <v-content>
+        <v-content class="landing">
             <router-view />
         </v-content>
-        <v-footer
-                color="indigo"
-                app
-        >
-            <span class="white--text">&copy; 2019</span>
-        </v-footer>
     </v-app>
 </template>
+
